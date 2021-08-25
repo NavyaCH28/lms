@@ -1,7 +1,5 @@
 package com.hcl.lms.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -12,7 +10,6 @@ import com.hcl.lms.model.Book;
 @Repository
 public interface LMSRepository extends JpaRepository<Book, Long>,JpaSpecificationExecutor<Book> {
 
-	//List<Book> findByTitleAndCategory(String title,String Category);
 	
 	static Specification<Book>  hasTitle(String title){
 		return (book, cq, cb) -> cb.equal(book.get("title"), title);
